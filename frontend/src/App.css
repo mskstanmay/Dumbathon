@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  text-align: center;
+  color: #2d3436;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+  background: #f7f9fc;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+@media (min-width: 768px) {
+  .input-group {
+    grid-template-columns: 2fr 1.5fr 1fr auto;
+  }
+  
+  .container {
+    padding: 40px;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e1e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+input:focus {
+  border-color: #667eea;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  transform: translateY(-1px);
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  position: relative;
+  overflow: hidden;
+}
+
+button:not(.delete) {
+  background: #667eea;
+  color: white;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(100, 100);
+    opacity: 0;
+  }
+}
+
+button:not(.delete):hover {
+  background: #5a6fe4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+button.delete {
+  background: #667eea;
+  color: white;
+}
+
+button.delete:hover {
+  background: #5a6fe4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 118, 117, 0.3);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 15px;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 5px solid #667eea;
+}
+
+@media (min-width: 640px) {
+  li {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+li .todo-content {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 640px) {
+  li .todo-content {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+}
+
+li .todo-content strong {
+  font-size: 1.1rem;
+  color: #2d3436;
+  display: block;
+  margin-bottom: 5px;
+}
+
+li .todo-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.categories {
+  font-size: 13px;
+  color: #636e72;
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.categories span {
+  background: #f1f5ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.due-date {
+  color: #636e72;
+  font-size: 14px;
+  margin-left: 10px;
+  background: #fff8e8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.completed {
+  opacity: 0.7;
+  background: #f5f6fa;
+}
+
+/* Loading state animation */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.loading {
+  animation: shimmer 1s linear infinite;
+  background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+  background-size: 800px 104px;
+}
