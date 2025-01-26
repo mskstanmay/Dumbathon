@@ -62,6 +62,28 @@ These restrictions force users to discover functionality through trial and error
 - Zero helpful error messages
 - Maximum user confusion (by design)
 
+## Screenshots
+
+![Todo App Main View](./screenshots/main-view.png)
+*Main view with invisible buttons - hover over the transparent areas to find them!*
+
+![Calendar View](./screenshots/calendar-view.png)
+*Calendar view showing scheduled tasks*
+
+## Video Demo
+
+Check out how the "invisible" todo app works in practice:
+
+[Watch Demo Video](https://youtu.be/dBWpHmzbc4Q)
+
+Quick demonstration of:
+- Creating a new todo (finding the invisible submit button)
+- Completing tasks (discovering interactive elements)
+- Deleting todos
+- Filtering by categories
+- Calendar navigation
+
+
 ## Setup Instructions
 
 1. Clone this repository
